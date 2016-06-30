@@ -28,14 +28,14 @@ $.validator.setDefaults ({
 $('#frmRegister').validate({
 	
 	rules:{
-		InputFirstName : { required:true } 
-		,InputLastName : { required:true }
-		,InputAge : {	 required:true ,number:true }
-		,InputPhone : { required:true ,number:true }
-		,InputPhoneEmer : { required:true ,number:true }
-		,InputAddress : { required:true }
-		,InputEmail: { required:true ,email:true }
-		,InputDisease : { required:true }
+		InputFirstName : { required:false } 
+		,InputLastName : { required:false }
+		,InputAge : {	 required:false ,number:true }
+		,InputPhone : { required:false ,number:true }
+		,InputPhoneEmer : { required:false ,number:true }
+		,InputAddress : { required:false }
+		,InputEmail: { required:false ,email:true }
+		,InputDisease : { required:false }
 
 	}
 	,messages:{
@@ -55,13 +55,14 @@ $('#frmRegister').validate({
 			$.ajax({
 				url:'process/register.php?rdm=' + new Date().getMilliseconds()
 				,type:'post'
-				,dataType:'html'
+				,dataType:'json'
 				,data : serializeData
 				,success:function(data){
-					
-					alert('validate success .' + data.result );
-					
+
 					console.log(data);
+					
+					//alert('validate success .' + data.result );
+					
 				}
 				,error:function(xhr,status,err){
 					alert('service error : ' + err.message);
