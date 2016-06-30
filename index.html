@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>register core</title>
+<meta charset='utf-8' />
+<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<meta name='viewpoint' content='width=device-width, initial-scale=1' />
+<link href='plugin/bootstraps/css/bootstrap/bootstrap.css' rel='stylesheet' />
+<link href='css/register.css' rel='stylesheet' />
+<link href='css/validator.css' rel='stylesheet' />
+</head>
+<body>
+<h1>Register Core.</h1> 
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-6'>
+			<img src='images/people-jogging.jpg'  class='img-thumbnail' />
+		</div>
+		<form role='form' id='frmRegister' name='frmRegister' method='post' >
+			<div class='col-md-6'>
+                <div class="form-group">
+                    <label for="inputTitile">คำนำหน้า (title)</label><br/>   
+                    <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="inputTitile" id="inputTitile" value="1" checked> นาย (Mr.)
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="inputTitile" id="inputTitile" value="2"> นาง (Mrs) 
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="inputTitile" id="inputTitile" value="3"> นางสาว (Miss)
+                    </label>
+                    </div><br/>
+                    <i>enter your name for register running.</i>
+                </div>
+				 <div class="form-group">
+                    <label for="InputFirstName">ชื่อ (First Name)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputFirstName" id="InputFirstName" placeholder="Enter First Name" maxlength="40" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    <i>enter your firstname.</i>
+                </div>
+                 <div class="form-group">
+                    <label for="InputLastName">นามสกุล (Last Name)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="Enter Last Name" maxlength="40" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    <i>enter your last name.</i>
+                </div>
+                <div class="form-group">
+                    <label for="InputAge">อายุ (Age)</label>
+                    <div class="input-group">
+                        <input type='text' class='form-control' id='InputAge' name='InputAge' placeholder='Enter Age' maxlength="2" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="InputPhone">เบอร์โทรศัพท์ (Phone/Mobile)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputPhone" id="InputPhone" placeholder="Enter Phone/Mobile" maxlength="10" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    <i>ext 02xxxxxxx (Phone) 08xxxxxxxx (Mobile)</i>
+                </div>
+                <div class="form-group">
+                    <label for="InputPhoneEmer">เบอร์โทรศัพท์ ฉุกเฉิน (Emergency Phone/Mobile)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputPhoneEmer" id="InputPhoneEmer" placeholder="Enter Phone/Mobile" maxlength="10">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    <i>for contact case emmergency ext 02xxxxxxx (Phone) 08xxxxxxxx (Mobile)</i>
+                </div>
+                 <div class="form-group">
+                    <label for="InputAddress">ที่อยู่ (Address)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputAddress" id="InputAddress" placeholder="Enter Address" maxlength="200" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="InputEmail">อีเมลล์ (Email)</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" name="InputEmail" id="InputEmail" placeholder="Enter Email" >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputLocation">จุดลงทะเบียน (Register Location)</label>
+                    <div class="input-group">
+                        <select id='InputLocation' name='InputLocation' class='form-control' >
+                            <option value='1' >Location A</option>
+                            <option value='2'>Location B</option>
+                        </select>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputDisease">โรคประจำตัว (Underying disesae)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputDisease" id="InputDisesae" placeholder="Enter Underying disesae." >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputBlood">กรุ๊ปเลือด (Blood Type)</label>
+                    <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default **active**">
+                        <input type="radio" name="inputBlood" id="inputBlood" value="A" checked>Group A
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="inputBlood" id="inputBlood" value="B">Group B 
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="inputBlood" id="inputBlood" value="AB">Group AB 
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="inputBlood" id="inputBlood" value="O">Group O
+                    </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selectSize">ขนาดเสื้อ (Size)</label>
+                    <div class="input-group">
+                    	<select id='selectSize' name='selectSize' class='form-control'>
+                    		<option value=''>--เลือก (select)--</option>
+                    		<option value='S'>S</option>
+                    		<option value='M'>M</option>
+                    		<option value='L'>L</option>
+                    		<option value='XL'>XL</option>
+                    	</select>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    <i>please pickup size.</i>
+                </div>
+                <div class="form-group">
+                	<input type='submit' id='sub' value='OK' class='btn btn-success'  /><button type='submit' class='btn btn-primary' >Register</button>&nbsp;<button type='reset' class='btn btn-danger'>Cancel</button>
+                </div>
+			</div>
+		</form>
+		
+	</div>
+</div>
+<script src='plugin/jquery/jquery.min.js' type='text/javascript'></script>
+<script src='plugin/jquery/jquery.validate.js' type='text/javascript'></script>
+<script src='plugin/jquery/jquery.validate.message.js' type='text/javascript'></script>
+<script src='plugin/bootstraps/js/bootstrap.js' ></script>
+<script src='js/validator.js' ></script>
+
+
+</body>
+</html>
