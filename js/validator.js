@@ -61,7 +61,7 @@ $('#frmRegister').validate({
 
 					console.log(data);
 					
-					//alert('validate success .' + data.result );
+					alert('request register success =>' + data.result );
 					
 				}
 				,error:function(xhr,status,err){
