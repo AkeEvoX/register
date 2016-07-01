@@ -19,7 +19,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 8189,
+				"buffer_size": 8587,
 				"line_ending": "Unix",
 				"name": "<html>"
 			}
@@ -28,18 +28,28 @@
 			"file": "js/validator.js",
 			"settings":
 			{
-				"buffer_size": 459,
+				"buffer_size": 2045,
 				"line_ending": "Unix",
 				"name": "$(document).ready(function(){"
 			}
 		},
 		{
-			"file": "css/register.css",
+			"file": "class/database.php",
 			"settings":
 			{
-				"buffer_size": 9,
-				"line_ending": "Unix",
-				"name": "body{"
+				"buffer_size": 1221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\nrequire_once(\"../class/database.php\");\n\n$mysql = new database();\n\n$mysql->connect();\n\necho \"<br/> show example data\";\n$query = \"select * from registerdata\";\n$result = $mysql->execute($query);\n\nwhile()\n{\n	echo \"Firstname = \"\n}\n\n\n?>\n",
+			"file": "process/test.php",
+			"file_size": 130,
+			"file_write_time": 1467386607000000,
+			"settings":
+			{
+				"buffer_size": 237,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -75,6 +85,8 @@
 	},
 	"file_history":
 	[
+		"/Users/iake.air/Sites/register/class/config.ini",
+		"/Users/iake.air/Sites/register/css/register.css",
 		"/Users/iake.air/Sites/feature/hovercaption/rotatein.html",
 		"/Users/iake.air/Sites/feature/hovermoving/index.html",
 		"/Users/iake.air/Sites/feature/hovercaption/index.html",
@@ -251,7 +263,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -259,15 +271,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 8189,
+						"buffer_size": 8587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7423,
-								7423
+								0,
+								0
 							]
 						],
 						"settings":
@@ -289,15 +301,15 @@
 					"file": "js/validator.js",
 					"settings":
 					{
-						"buffer_size": 459,
+						"buffer_size": 2045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								278,
-								278
+								1501,
+								1501
 							]
 						],
 						"settings":
@@ -307,31 +319,59 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 630.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "css/register.css",
+					"file": "class/database.php",
 					"settings":
 					{
-						"buffer_size": 9,
+						"buffer_size": 1221,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9,
-								9
+								929,
+								929
 							]
 						],
 						"settings":
 						{
-							"auto_name": "body{",
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 439.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "process/test.php",
+					"settings":
+					{
+						"buffer_size": 237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
