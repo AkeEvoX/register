@@ -28,6 +28,7 @@ $.validator.setDefaults ({
 $('#frmRegister').validate({
 	
 	rules:{
+
 		InputFirstName : { required:false } 
 		,InputLastName : { required:false }
 		,InputAge : {	 required:false ,number:true }
@@ -61,7 +62,7 @@ $('#frmRegister').validate({
 
 					console.log(data);
 					
-					alert('request register success =>' + data.result );
+					alert('request register success => ' + data.result );
 					
 				}
 				,error:function(xhr,status,err){

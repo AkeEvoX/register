@@ -1,4 +1,5 @@
 <?php
+
 class database {
 
 	private $host;
@@ -21,18 +22,28 @@ class database {
 		
 	}
 
-	function __deconstruct(){
+	function __destruct(){
+/*
+		try{
 
-		$result->free();
-		$conn->close();
+			$this->result->free();
+		
+			if($this->conn!="")
+				$this->conn->close();
 
+			echo "<br/>terminate and disconnect class database ";
+
+		}catch(Exception $e)
+		{
+			echo "Disconnect Error : " . $e->getMessage();
+		}*/
 	}
 
 	function connect(){
 
 		try{
 
-			$this->conn = new mysqli;
+			$this->conn = new mysqli();
 			$this->conn->connect($this->host,$this->user,$this->pass,$this->base,$this->port);
 			$this->conn->set_charset("utf8");
 
@@ -41,26 +52,33 @@ class database {
 		}catch(Exception $e)
 		{
 
-			echo "Connection Error : " . $e->getMessage();
+			echo "Connection Error : " . $e->getMessage() . "<br/>result=";
 		}
 		//throw new Exception("Value must be 1 or below");
 	}
 
 	function disconnect(){
 
-		$this->result->free();
-		
-		if($conn!="")
-			$conn->close();
+		try{
 
-		echo "disconnect success.";
+			$this->result->free();
+		
+			if($this->conn!="")
+				$this->conn->close();
+
+			echo "disconnect success.";
+
+		}catch(Exception $e)
+		{
+			echo "Disconnect Error : " . $e->getMessage();
+		}
 		
 	}
 
-	function execute($query){
+	function execute($sql){
 		try{
 
-			$this->result = $this->conn->query($query);
+			$this->result = $this->conn->query($sql);
 
 			return $this->result;
 
@@ -70,6 +88,24 @@ class database {
 		}
 
 	}
+
+	function procedure($sql,$types,$params)
+	{
+		try{
+
+			$stmt = $this->conn->prepare($sql);
+			call_user_func_array(array($stmt, "bind_param") ,array_merge(array($types),$params));
+			$stmt->execute();
+
+			$result = $stmt->get_result();
+			return $result;
+
+		}catch(Exception $e)
+		{
+			echo "call procedure error : " . $e->getMessage();
+		}
+	}
+
 
 	function newid(){
 		try{
