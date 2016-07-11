@@ -1,5 +1,5 @@
 <?php 
-//require_once("../class/database.php");
+require_once("../class/utility.php");
 require_once("../class/registermanager.php");
 header('Content-Type: application/json');
 session_start();
@@ -11,7 +11,7 @@ $data = json_decode(json_encode($_POST));
 
 
 $milliseconds = round(microtime(true) * 1000);
-
+/*
 $title = $data->inputTitle;
 $fname = $data->InputFirstName;
 $lname = $data->InputLastName;
@@ -25,7 +25,7 @@ $disease = $data->InputDisease;
 $blood = $data->inputBlood;
 $size = $data->selectSize;
 $token = $milliseconds;
-
+*/
 $result  =  "Failed";
 	
 
@@ -44,16 +44,7 @@ try{
 	$register->age = $data->InputAge;
 	*/
 
-	$register->insert(
-		$data->InputFirstName
-		,$data->InputLastName
-		,$data->InputAge
-		,$data->InputPhone
-		,$data->InputPhoneEmer
-		);
-
-	//var_dump($register);
-
+	$info = $register->insert($data);
 	$result  = "Success";
 	
 
@@ -75,7 +66,7 @@ catch(Exception $e)
 	die("Service Unvailable");
 }
 
-echo json_encode(array("result"=> $result ,"code"=>"0","param"=>$register));
+echo json_encode(array("result"=> $result ,"code"=>"0","param"=>$info));
 //print_r(json_encode($item)); 
 
 ?>

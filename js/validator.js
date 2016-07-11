@@ -29,14 +29,14 @@ $('#frmRegister').validate({
 	
 	rules:{
 
-		InputFirstName : { required:false } 
-		,InputLastName : { required:false }
-		,InputAge : {	 required:false ,number:true }
-		,InputPhone : { required:false ,number:true }
-		,InputPhoneEmer : { required:false ,number:true }
-		,InputAddress : { required:false }
-		,InputEmail: { required:false ,email:true }
-		,InputDisease : { required:false }
+		firstname : { required:false } 
+		,lastname : { required:false }
+		,age : {	 required:false ,number:true }
+		,phone : { required:false ,number:true }
+		,emerphone : { required:false ,number:true }
+		,address : { required:false }
+		,email: { required:false ,email:true }
+		,disease : { required:false }
 
 	}
 	,messages:{

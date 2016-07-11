@@ -52,7 +52,7 @@ class database {
 		}catch(Exception $e)
 		{
 
-			echo "Connection Error : " . $e->getMessage() . "<br/>result=";
+			echo "Connection error : " . $e->getMessage() . "<br/>result=";
 		}
 		//throw new Exception("Value must be 1 or below");
 	}
@@ -61,16 +61,17 @@ class database {
 
 		try{
 
-			$this->result->free();
+			if($this->result!=null)
+				$this->result->free();
 		
-			if($this->conn!="")
+			if($this->conn!=null)
 				$this->conn->close();
 
-			echo "disconnect success.";
+			//echo "disconnect success.";
 
 		}catch(Exception $e)
 		{
-			echo "Disconnect Error : " . $e->getMessage();
+			echo "disconnect error : " . $e->getMessage();
 		}
 		
 	}
@@ -84,17 +85,31 @@ class database {
 
 		}catch(Exception $e)
 		{
-			echo "Execute Error : " . $e->getMessage();
+			echo "call execute error : " . $e->getMessage();
 		}
 
 	}
 
-	function procedure($sql,$types,$params)
+	function procedure($sql,$types,$data)
 	{
 		try{
 
 			$stmt = $this->conn->prepare($sql);
-			call_user_func_array(array($stmt, "bind_param") ,array_merge(array($types),$params));
+			//Types: s = string, i = integer, d = double, b = blob)
+
+
+			$param = array();
+			$lenght = count($data);
+
+			$param[] =& $types;
+
+			/*
+			for($i=0;$i<$lenght;$i++)
+			{
+				$param[] = $data[$i];
+			}
+			*/
+			call_user_func_array(array($stmt, "bind_param") ,$data);
 			$stmt->execute();
 
 			$result = $stmt->get_result();
@@ -110,13 +125,11 @@ class database {
 	function newid(){
 		try{
 
-			$result = "";
-
-
+			$result = $this->conn->insert_id;
 			return $result;
 		}catch(Exception $e)
 		{
-			echo "Execute Error : " . $e->getMessage();
+			echo "call newid error : " . $e->getMessage();
 		}
 
 	}

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"call_user_func",
+				"call_user_func_array"
+			],
+			[
+				"call_user_fun",
+				"call_user_method_array〔function〕"
+			],
+			[
 				"s",
 				"cursive"
 			],
@@ -16,19 +24,10 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 8587,
-				"line_ending": "Unix",
-				"name": "<html>"
-			}
-		},
-		{
 			"file": "js/validator.js",
 			"settings":
 			{
-				"buffer_size": 2045,
+				"buffer_size": 2007,
 				"line_ending": "Unix",
 				"name": "$(document).ready(function(){"
 			}
@@ -37,18 +36,40 @@
 			"file": "class/database.php",
 			"settings":
 			{
-				"buffer_size": 1221,
+				"buffer_size": 2181,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<?php\nrequire_once(\"../class/database.php\");\n\n$mysql = new database();\n\n$mysql->connect();\n\necho \"<br/> show example data\";\n$query = \"select * from registerdata\";\n$result = $mysql->execute($query);\n\nwhile()\n{\n	echo \"Firstname = \"\n}\n\n\n?>\n",
-			"file": "process/test.php",
-			"file_size": 130,
-			"file_write_time": 1467386607000000,
+			"file": "class/registermanager.php",
 			"settings":
 			{
-				"buffer_size": 237,
+				"buffer_size": 2023,
+				"line_ending": "Unix",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "process/register.php",
+			"settings":
+			{
+				"buffer_size": 1552,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "class/utility.php",
+			"settings":
+			{
+				"buffer_size": 1157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "process/test.php",
+			"settings":
+			{
+				"buffer_size": 946,
 				"line_ending": "Unix"
 			}
 		}
@@ -85,7 +106,11 @@
 	},
 	"file_history":
 	[
+		"/Users/iake.air/Sites/register/class/utility.php",
 		"/Users/iake.air/Sites/register/class/config.ini",
+		"/Users/iake.air/Sites/register/index.html",
+		"/Users/iake.air/Sites/register/process/test.php",
+		"/Users/iake.air/Sites/register/class/connecter.php",
 		"/Users/iake.air/Sites/register/css/register.css",
 		"/Users/iake.air/Sites/feature/hovercaption/rotatein.html",
 		"/Users/iake.air/Sites/feature/hovermoving/index.html",
@@ -216,6 +241,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"selectSize",
+			"inputBlood",
+			"InputDisease",
+			"InputDisesae",
+			"registermanager",
+			"phoneemer",
 			"นามสกุลFull",
 			"30px",
 			"inputindex",
@@ -253,6 +284,9 @@
 		"regex": true,
 		"replace_history":
 		[
+			"size",
+			"blood",
+			"disease"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -263,53 +297,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 8587,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"auto_name": "<html>",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 525.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "js/validator.js",
 					"settings":
 					{
-						"buffer_size": 2045,
+						"buffer_size": 2007,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1501,
-								1501
+								1286,
+								1286
 							]
 						],
 						"settings":
@@ -319,25 +323,25 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 630.0,
+						"translation.y": 512.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "class/database.php",
 					"settings":
 					{
-						"buffer_size": 1221,
+						"buffer_size": 2181,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								929,
-								929
+								1862,
+								1862
 							]
 						],
 						"settings":
@@ -347,25 +351,82 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 439.0,
+						"translation.y": 1275.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "process/test.php",
+					"buffer": 2,
+					"file": "class/registermanager.php",
 					"settings":
 					{
-						"buffer_size": 237,
+						"buffer_size": 2023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								229,
-								229
+								1834,
+								1834
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "process/register.php",
+					"settings":
+					{
+						"buffer_size": 1552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1187,
+								1187
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "class/utility.php",
+					"settings":
+					{
+						"buffer_size": 1157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								383,
+								383
 							]
 						],
 						"settings":
@@ -375,6 +436,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "process/test.php",
+					"settings":
+					{
+						"buffer_size": 946,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								564,
+								564
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

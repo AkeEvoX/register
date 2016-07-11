@@ -38,7 +38,7 @@ class registermanager {
 
 
 
-	function insert($firstname){
+	function insert($data){
 
 		try{
 
@@ -59,34 +59,44 @@ class registermanager {
 		$size = $data->selectSize;
 		*/
 
-		/*
-		$sql = "call registerdata(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+		
+		$sql = "call registeruser(?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		$types="sssisssssssss";
-		$params = array();
-		$params[]=$this->title;
-		$params[]=$this->firstname;
-		$params[]=$this->lastname;
-		$params[]=$this->age;
-		$params[]=$this->phone;
-		$params[]=$this->phoneemer;
-		$params[]=$this->address;
-		$params[]=$this->email;
-		$params[]=$this->location;
-		$params[]=$this->disesase;
-		$params[]=$this->blood;
-		$params[]=$this->size;
+		// $params = array();
+		// $params[]=& $data->title;
+		// $params[]=& $data->firstname;
+		// $params[]=& $data->lastname;
+		// $params[]=& $data->age;
+		// $params[]=& $data->phone;
+		// $params[]=& $data->emerphone;
+		// $params[]=& $data->address;
+		// $params[]=& $data->email;
+		// $params[]=& $data->location;
+		// $params[]=& $data->disease;
+		// $params[]=& $data->blood;
+		// $params[]=& $data->size;
+		// $params[] =& round(microtime(true) * 1000);//token
 
-		$this->mysql->procedure($sql,$types,$params);
-		*/
-
+		$data->token = round(microtime(true) * 1000);
+		//$test = (array)get_object_vars($data);//cast object to array
+		/*simulate data*/
+		$param = array();
+		$param[] =& $types;
+		
+		foreach($data as $key => $val)
+		{
+			$param[] =& $key;
+		}
+		
+		$this->mysql->procedure($sql,$types,$param);
+		
 		$this->mysql->disconnect();
+
+		return $param;
 
 		}catch(Exception $e){
 			echo "Cannot insert register".$e->getMessage();
 		}
-		
-
-		//
 
 	}
 
