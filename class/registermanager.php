@@ -36,9 +36,7 @@ class registermanager {
 
 	}
 
-
-
-	function insert($data){
+	function insert($datas){
 
 		try{
 
@@ -58,46 +56,51 @@ class registermanager {
 		$blood = $data->inputBlood;
 		$size = $data->selectSize;
 		*/
-
 		
 		$sql = "call registeruser(?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		$types="sssisssssssss";
-		// $params = array();
-		// $params[]=& $data->title;
-		// $params[]=& $data->firstname;
-		// $params[]=& $data->lastname;
-		// $params[]=& $data->age;
-		// $params[]=& $data->phone;
-		// $params[]=& $data->emerphone;
-		// $params[]=& $data->address;
-		// $params[]=& $data->email;
-		// $params[]=& $data->location;
-		// $params[]=& $data->disease;
-		// $params[]=& $data->blood;
-		// $params[]=& $data->size;
-		// $params[] =& round(microtime(true) * 1000);//token
+		$datas->token = round(microtime(true) * 1000);
 
-		$data->token = round(microtime(true) * 1000);
-		//$test = (array)get_object_vars($data);//cast object to array
-		/*simulate data*/
-		$param = array();
-		$param[] =& $types;
 		
-		foreach($data as $key => $val)
-		{
-			$param[] =& $key;
-		}
-		
-		$this->mysql->procedure($sql,$types,$param);
+		$this->mysql->procedure($sql,$types,$datas);
 		
 		$this->mysql->disconnect();
 
-		return $param;
+		return $datas;
 
 		}catch(Exception $e){
 			echo "Cannot insert register".$e->getMessage();
 		}
 
+	}
+	// result 1 = true , 0 = false
+	function isMax()
+	{
+		try{
+
+			$result = false;
+
+			$this->mysql->connect();
+
+			$sql = "call maxregister(@result);";
+			$types = "";
+			$datas = new stdClass();//empty object
+			$datas->empty = "1";
+
+			$this->mysql->procedure($sql,$types,$datas);
+
+			$items = $this->mysql->execute("select @result as result;");
+
+			$result = $items->fetch_object();
+
+			$this->mysql->disconnect();
+
+			return $result;
+
+		}catch(Exception $e)
+		{
+			echo "can't get max register : ".$e->getMessage();
+		}
 	}
 
 	function update(){
@@ -107,6 +110,8 @@ class registermanager {
 	function delete(){
 
 	}
+
+
 }
 
 

@@ -89,7 +89,9 @@ class database {
 		}
 
 	}
-
+	//sql is call procedure ex.call procedure(?,?,?,?,?,?);
+	//type is type parameter  ex.ssissi
+	//data is object only {"data"="val1","data2"="val2"}
 	function procedure($sql,$types,$data)
 	{
 		try{
@@ -97,19 +99,27 @@ class database {
 			$stmt = $this->conn->prepare($sql);
 			//Types: s = string, i = integer, d = double, b = blob)
 
-
-			$param = array();
-			$lenght = count($data);
-
-			$param[] =& $types;
-
-			/*
-			for($i=0;$i<$lenght;$i++)
+			if($types!="")
 			{
-				$param[] = $data[$i];
+				$valuelist = array();
+				$datalist = array();
+				$valuelist[] =& $types;
+
+				//#assign value to valuelist
+				foreach($data as $key => $val)
+				{
+					$datalist[] = $val;
+				}
+				//#mapping value to param
+				$count = count($datalist);
+				for($i = 0 ; $i < $count ; $i++)
+				{
+					$valuelist[] =& $datalist[$i];
+				}
+
+				call_user_func_array(array($stmt, "bind_param") ,$valuelist);
 			}
-			*/
-			call_user_func_array(array($stmt, "bind_param") ,$data);
+
 			$stmt->execute();
 
 			$result = $stmt->get_result();

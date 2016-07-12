@@ -2,7 +2,7 @@
 
 require_once("../class/database.php");
 
-$mysql = new database();
+//$mysql = new database();
 
 //$mysql->connect();
 
@@ -27,31 +27,11 @@ while($data = $result->fetch_assoc())
 
 */
 
+$datas = new stdClass();//empty object
+$datas->empty = null;
 
-//$sql = "call execute";
+var_dump($datas);
 
-$textarr = "abcdefgh";
-$valarr = "1,2,3,4,5,6,7,8";
-$data_text = array();
-$data_val = array("0");
-
-$data_text[] = & $textarr;
-$data_text[] = & $data_val[0];
-// $data_text[] = & "2";
-// $data_text[] = & "3";
-// $data_text[] = & "4";
-// $data_text[] = & "5";
-// $data_text[] = & "6";
-// $data_text[] = & "7";
-// $data_text[] = & "8";
-
-var_dump($data_text);
-//var_dump(array_merge(array($textarr),array($valarr));
 echo "ok";
 //$mysql->disconnect();
 ?>
-
-
-
- 
- 
